@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javier Vargas | Aprende el Alfabeto aeronaútico</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <script src="https://kit.fontawesome.com/bcc14d4623.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <div class="container__content">
+            <span id="hour">1:00</span>
+            <p class="paragraph">Recuerda que si está mal escrito, contará como respuesta errónea.</p>
+            <h1 id="letter" class="container__h1">A</h1>
+            <form id="form">
+                <label for="input">Significado: </label>
+                <input id="inputValueUser" name="inputValueUser" class="input">
+                <button id="buttonValueUser">Enviar</button>
+            </form>
+            <div id="content__results" class="content__results">
+                <section class="container__results">
+                    <section class="content__answer">
+                        <i class="correct far fa-check-square"></i>
+                        <span id="answer__correct" class="answer__correct">2</span>
+                    </section>
+                    <section class="content__answer">
+                        <i class="error fas fa-times"></i>
+                        <span id="answer__wrong" class="answer__wrong">4</span>
+                    </section>
+                </section>
+                <section class="section__button">
+                    <button class="resetGame" id="resetGame"><i class="fas fa-redo-alt"></i></button>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
