@@ -14,7 +14,7 @@ let hour = document.getElementById('hour');
 let input = document.getElementById('inputValueUser');
 let answerCorrect = 0,
     answerWrong = 0,
-    fechaFuturo, idInterval;
+    futureHour, idInterval;
 
 // Capturamos el evento cada que se envía una palabra en el input, para que valide si la respuesta es correcta y pase a la siguiente letra.
 form.addEventListener('submit', (event) => {
@@ -28,7 +28,7 @@ form.addEventListener('submit', (event) => {
 
 // Cada que le del click al input, el temporizador inicia
 input.addEventListener('focus', () => {
-    iniciarTemporizador(1, 0);
+    startTimer(1, 0);
 });
 
 document.getElementById('resetGame').addEventListener('click', () => {
@@ -64,38 +64,38 @@ function showResults() {
     results.style.display = "block";
 }
 
-const iniciarTemporizador = (minutos, segundos) => {
-    if (fechaFuturo) {
-        fechaFuturo = new Date(new Date().getTime());
+const startTimer = (minutes, seconds) => {
+    if (futureHour) {
+        futureHour = new Date(new Date().getTime());
     } else {
         console.log("Iniciar");
-        const milisegundos = (segundos + (minutos * 60)) * 1000;
-        fechaFuturo = new Date(new Date().getTime() + milisegundos);
+        const miliseconds = (seconds + (minutes * 60)) * 1000;
+        futureHour = new Date(new Date().getTime() + miliseconds);
     }
     clearInterval(idInterval);
     idInterval = setInterval(() => {
-        const tiempoRestante = fechaFuturo.getTime() - new Date().getTime();
-        if (tiempoRestante <= 0) {
-            hour.textContent = milisegundosAMinutosYSegundos(tiempoRestante);
+        const remainingTime = futureHour.getTime() - new Date().getTime();
+        if (remainingTime <= 0) {
+            hour.textContent = milisecondsAminutesYseconds(remainingTime);
             console.log("Tiempo terminado");
             clearInterval(idInterval);
             showResults();
         } else {
-            hour.textContent = milisegundosAMinutosYSegundos(tiempoRestante);
+            hour.textContent = milisecondsAminutesYseconds(remainingTime);
         }
     }, 50);
 };
 
-const agregarCeroSiEsNecesario = valor => {
+const formatHourZero = valor => {
     if (valor < 10) {
         return "0" + valor;
     } else {
         return "" + valor;
     }
 }
-const milisegundosAMinutosYSegundos = (milisegundos) => {
-    const minutos = parseInt(milisegundos / 1000 / 60);
-    milisegundos -= minutos * 60 * 1000;
-    segundos = (milisegundos / 1000);
-    return `${agregarCeroSiEsNecesario(minutos)}:${agregarCeroSiEsNecesario(segundos.toFixed(1))}`;
+const milisecondsAminutesYseconds = (miliseconds) => {
+    const minutes = parseInt(miliseconds / 1000 / 60);
+    miliseconds -= minutes * 60 * 1000;
+    seconds = (miliseconds / 1000);
+    return `${formatHourZero(minutes)}:${formatHourZero(seconds.toFixed(1))}`;
 };
