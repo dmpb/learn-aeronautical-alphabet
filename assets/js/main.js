@@ -10,9 +10,11 @@ let indexAlphabet = 1;
 
 // Tomamos el formulario del HTML y declaramos variables para saber el número de respuestas correctas e incorrectas
 let formulario = document.getElementById('form');
+let hour = document.getElementById('hour');
 let input = document.getElementById('inputValueUser');
 let answerCorrect = 0,
-    answerWrong = 0;
+    answerWrong = 0,
+    fechaFuturo, idInterval;
 
 // Capturamos el evento cada que se envía una palabra en el input, para que valide si la respuesta es correcta y pase a la siguiente letra.
 form.addEventListener('submit', (event) => {
@@ -26,24 +28,7 @@ form.addEventListener('submit', (event) => {
 
 // Cada que le del click al input, el temporizador inicia
 input.addEventListener('focus', () => {
-
-    // Con ayuda de un setInterval realizamos el temporizador de un minuto
-    let hour = document.getElementById('hour');
-    let minute = 59;
-    let timer = setInterval(function() {
-        if (minute > 9) {
-            hour.innerHTML = `0:${minute}`
-            minute--;
-        } else {
-            hour.innerHTML = `0:0${minute}`
-            minute--;
-        }
-        if (minute == -1) {
-            clearInterval(timer);
-            showResults();
-        }
-    }, 1000);
-
+    iniciarTemporizador(1, 0);
 });
 
 document.getElementById('resetGame').addEventListener('click', () => {
@@ -59,8 +44,10 @@ function clearInput() {
 function changeLetter() {
     document.getElementById('letter').innerHTML = alphabet[indexAlphabet];
     indexAlphabet++;
-    if (indexAlphabet === 26) {
-        clearInterval(timer);
+    if (indexAlphabet === 27) {
+        clearInterval(idInterval);
+        console.log('Hemos terminado');
+        document.getElementById('letter').innerHTML = '¡Terminó el tiempo!'
         showResults();
     }
 }
@@ -76,3 +63,39 @@ function showResults() {
     formulario.style.display = "none";
     results.style.display = "block";
 }
+
+const iniciarTemporizador = (minutos, segundos) => {
+    if (fechaFuturo) {
+        fechaFuturo = new Date(new Date().getTime());
+    } else {
+        console.log("Iniciar");
+        const milisegundos = (segundos + (minutos * 60)) * 1000;
+        fechaFuturo = new Date(new Date().getTime() + milisegundos);
+    }
+    clearInterval(idInterval);
+    idInterval = setInterval(() => {
+        const tiempoRestante = fechaFuturo.getTime() - new Date().getTime();
+        if (tiempoRestante <= 0) {
+            hour.textContent = milisegundosAMinutosYSegundos(tiempoRestante);
+            console.log("Tiempo terminado");
+            clearInterval(idInterval);
+            showResults();
+        } else {
+            hour.textContent = milisegundosAMinutosYSegundos(tiempoRestante);
+        }
+    }, 50);
+};
+
+const agregarCeroSiEsNecesario = valor => {
+    if (valor < 10) {
+        return "0" + valor;
+    } else {
+        return "" + valor;
+    }
+}
+const milisegundosAMinutosYSegundos = (milisegundos) => {
+    const minutos = parseInt(milisegundos / 1000 / 60);
+    milisegundos -= minutos * 60 * 1000;
+    segundos = (milisegundos / 1000);
+    return `${agregarCeroSiEsNecesario(minutos)}:${agregarCeroSiEsNecesario(segundos.toFixed(1))}`;
+};
