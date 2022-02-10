@@ -54,7 +54,7 @@ function addTable(wordCorrect, wordWrong) {
 // Cada que le del click al input, el temporizador inicia
 input.addEventListener('focus', () => {
     if (validateTime) { return }
-    startTimer(0, 2);
+    startTimer(1, 0);
 });
 
 document.getElementById('resetGame').addEventListener('click', () => {
