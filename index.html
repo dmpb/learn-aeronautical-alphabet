@@ -18,7 +18,7 @@
     <div class="container">
         <div class="container__content">
             <span id="hour">1:00</span>
-            <p class="paragraph">Recuerda que si está mal escrito, contará como respuesta errónea.</p>
+            <p class="paragraph" id="paragraph">Recuerda que si está mal escrito, contará como respuesta errónea.</p>
             <h1 id="letter" class="container__h1">A</h1>
             <form id="form">
                 <label for="input">Significado: </label>
@@ -36,6 +36,16 @@
                         <span id="answer__wrong" class="answer__wrong">4</span>
                     </section>
                 </section>
+                <table id="table" class="table">
+                    <thead>
+                        <tr>
+                            <td>Correcto</td>
+                            <td>Ingresado</td>
+                        </tr>
+                    </thead>
+                    <tbody id="listWrong">
+                    </tbody>
+                </table>
                 <section class="section__button">
                     <button class="resetGame" id="resetGame"><i class="fas fa-redo-alt"></i></button>
                 </section>

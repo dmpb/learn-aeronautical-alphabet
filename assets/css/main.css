@@ -69,3 +69,34 @@ html {
 .error {
     color: #e70c0c;
 }
+
+table {
+    color: white;
+    border-spacing: 0;
+}
+
+td {
+    padding: 0.5rem 1rem;
+    text-align: center;
+}
+
+thead {
+    background: #202932;
+    font-weight: bold;
+}
+
+tbody {
+    font-size: 0.85rem;
+}
+
+tbody tr:nth-child(odd) {
+    background: #2c3845;
+}
+
+tbody tr:nth-child(even) {
+    background: #242e39;
+}
+
+tbody tr:hover {
+    background: #202a33;
+}
