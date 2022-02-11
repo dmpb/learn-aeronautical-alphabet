@@ -4,6 +4,7 @@
     --color-paragraph: #a7a9be;
     --color-button: #ff8906;
     --color-button-text: #fffffe;
+    --color-card: #fefefe;
     /* SECONDARY */
     --color-stroke: black;
     --color-main: #fffffe;
@@ -31,7 +32,8 @@ body {
     font-size: 1.05rem;
     background: var(--color-background);
     color: var(--color-headline);
-    padding: 1.2rem;
+    padding: 1.75rem;
+    box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.25);
 }
 
 .content__nav {
@@ -40,6 +42,7 @@ body {
 
 .paragraph__nav {
     color: var(--color-paragraph);
+    line-height: 1.4rem;
 }
 
 .img__nav {
@@ -50,11 +53,13 @@ body {
 .button {
     background: var(--color-button);
     color: var(--color-button-text);
-    font-size: 1.25rem;
+    font-size: 1.15rem;
+    font-weight: bold;
     border: none;
     border-radius: .4rem;
-    padding: .85rem 1.25rem;
+    padding: 1rem 1.4rem;
     cursor: pointer;
+    box-shadow: 0px 4px 20px rgba(32, 32, 32, 0.05);
 }
 
 .content__help,
@@ -76,6 +81,8 @@ body {
 .footer {
     bottom: 1rem;
     color: var(--color-paragraph);
+    z-index: 5;
+    letter-spacing: .1rem;
 }
 
 
@@ -93,10 +100,41 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
+    background-color: var(--color-card);
     padding: 1.5em;
-    border-radius: .45em;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.16);
+    z-index: 5;
+    border-radius: .25em;
+    box-shadow: 0px 4px 25px rgba(32, 32, 32, 0.2);
+}
+
+.wave {
+    position: absolute;
+    width: calc(100% - 30rem);
+    bottom: 0;
+    overflow: hidden;
+    stroke: none;
+    fill: rgba(245, 243, 185, .75);
+}
+
+.input {
+    background-color: white;
+    margin-right: 1rem;
+    outline: none;
+    border-left: solid 3px var(--color-background);
+    box-shadow: 0px 4px 20px rgba(32, 32, 32, 0.05);
+    cursor: text;
+    color: var(--color-background);
+    font-weight: 400;
+    letter-spacing: 0.15rem;
+}
+
+.input:focus {
+    border: none;
+    border-left: solid 3px var(--color-secondary);
+}
+
+.next {
+    background: var(--color-secondary);
 }
 
 .content__results {
@@ -105,13 +143,16 @@ body {
     width: 100%;
 }
 
+.container__h2 {
+    font-size: 4rem;
+}
+
 .section__button {
     display: flex;
     justify-content: flex-end;
 }
 
 .paragraph {
-    font-size: .8em;
     color: #363636;
 }
 
@@ -121,6 +162,7 @@ body {
     justify-content: center;
     width: 2.5em;
     height: 2.5em;
+    font-size: 2rem;
     background-color: #182e36;
     color: white;
     border-radius: 50%;
@@ -132,6 +174,7 @@ body {
 .container__results {
     display: flex;
     justify-content: center;
+    font-size: 1.5rem;
 }
 
 .content__answer {
