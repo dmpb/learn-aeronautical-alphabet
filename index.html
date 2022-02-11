@@ -11,15 +11,27 @@
     <script src="https://kit.fontawesome.com/bcc14d4623.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <div class="container">
+    <section class="nav">
+        <section class="content__nav">
+            <h1>¡Aprende el alfabeto aeronaútico!</h1>
+            <p class="paragraph__nav">Juega con nosotros y aprende el significado de cada uno de las letras.</p>
+            <br>
+            <button class="button button__nav">
+                Conoce más sobre nosotros
+            </button>
+        </section>
+        <img class="img__nav" src="assets/img/img-questions.svg" alt="Foto referencial">
+    </section>
+    <main class="container">
+        <p class="content__help"><span class="span__help">¿Necesitas ayuda?</span> Mira el alfabeto aeronaútico <a href="">aquí</a></p>
         <div class="container__content">
             <span id="hour">1:00</span>
             <p class="paragraph" id="paragraph">Recuerda que si está mal escrito, contará como respuesta errónea.</p>
-            <h1 id="letter" class="container__h1">A</h1>
+            <h2 id="letter" class="container__h1">A</h2>
             <form id="form">
                 <label for="input">Significado: </label>
                 <input autocomplete="off" id="inputValueUser" name="inputValueUser" class="input">
@@ -51,7 +63,10 @@
                 </section>
             </div>
         </div>
-    </div>
+        <footer class="footer">
+            <p class="span__footer">Copyright© | Todos los derechos reservados 2022</p>
+        </footer>
+    </main>
     <script src="assets/js/main.js"></script>
 </body>
 
