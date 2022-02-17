@@ -15,25 +15,13 @@
 html {
     font-family: 'DM Sans', sans-serif;
     font-size: 10px;
+    background: var(--color-background);
 }
-
-body {
-    display: grid;
-    grid-template-columns: 40rem auto;
-}
-
-
-/* NAV BAR */
 
 .nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
     font-size: 1.5rem;
-    background: var(--color-background);
     color: var(--color-headline);
     padding: 1.75rem;
-    box-shadow: 4px 0px 8px rgba(0, 0, 0, 0.25);
 }
 
 .content__nav {
@@ -46,11 +34,20 @@ body {
 }
 
 .img__nav {
-    width: 30rem;
-    margin: 0 auto 10rem auto;
+    display: none;
+}
+
+.button__span {
+    background-color: var(--color-button-text);
+    font-weight: bold;
+    color: var(--color-secondary);
+    border: none;
+    cursor: pointer;
+    padding-left: 0;
 }
 
 .button {
+    text-decoration: none;
     background: var(--color-button);
     color: var(--color-button-text);
     font-size: 1.5rem;
@@ -74,27 +71,25 @@ body {
     top: 0;
 }
 
-.span__help {
-    font-weight: bold;
+.content__help {
+    display: none;
 }
 
 .footer {
+    display: none;
+    position: absolute;
+    font-size: 1.2rem;
+    width: 100%;
     bottom: 1rem;
+    padding: 0 auto;
     color: var(--color-paragraph);
     z-index: 5;
     letter-spacing: .1rem;
+    text-align: center;
 }
 
 
-/* MAIN */
-
-.container {
-    background: var(--color-button-text);
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+/* CARD */
 
 .container__content {
     display: flex;
@@ -103,26 +98,22 @@ body {
     align-items: center;
     background-color: var(--color-card);
     padding: 1.5em;
+    margin: 1em;
     z-index: 5;
     border-radius: .25em;
     box-shadow: 0px 4px 25px rgba(32, 32, 32, 0.2);
 }
 
 .wave {
-    position: absolute;
-    width: calc(100% - 40rem);
-    bottom: 0;
-    overflow: hidden;
-    stroke: none;
-    fill: rgba(245, 243, 185, .75);
+    display: none;
 }
 
 .input {
-    background-color: white;
+    background-color: var(--color-main);
     margin-right: 1rem;
     outline: none;
-    border-left: solid 3px var(--color-background);
-    box-shadow: 0px 4px 20px rgba(32, 32, 32, 0.05);
+    /* border-left: solid 3px var(--color-background); */
+    box-shadow: 0px 4px 20px rgba(32, 32, 32, 0.15);
     cursor: text;
     color: var(--color-background);
     font-weight: 400;
@@ -146,18 +137,21 @@ body {
 
 .container__h2 {
     font-size: 5rem;
+    text-align: center;
 }
 
 .section__button {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    margin-bottom: 2rem;
 }
 
 .paragraph {
+    text-align: center;
     color: #363636;
 }
 
-.resetGame {
+.button__circle {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -188,37 +182,62 @@ body {
     color: #0ce755;
 }
 
-.error {
+.errorIcon {
     color: #e70c0c;
 }
 
-table {
+
+/* TABLE ALPHABET */
+
+.container__tables {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    background-color: var(--color-button-text);
+    top: 5rem;
+    display: none;
+    z-index: 10;
+    width: 80%;
+    padding: 2.5rem;
+    border-radius: .5rem;
+    box-shadow: 0px 4px 20px rgba(32, 32, 32, 0.25);
+}
+
+.content__tables {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.table {
+    background: var(--color-secondary);
+    color: var(--color-headline);
+    font-size: 1.6rem;
+}
+
+.table__answer {
+    display: flex;
+    justify-content: center;
+}
+
+.th {
+    padding: 0.5rem;
     color: white;
-    border-spacing: 0;
+}
+
+.error {
+    color: #e70c0c;
+    background-color: var(--color-card);
 }
 
 td {
-    padding: 0.5rem 1rem;
-    text-align: center;
+    width: 8rem;
+    padding: 0.5rem 1.5rem;
 }
 
-thead {
-    background: #202932;
-    font-weight: bold;
-}
-
-tbody {
-    font-size: 0.85rem;
-}
-
-tbody tr:nth-child(odd) {
-    background: #2c3845;
-}
-
-tbody tr:nth-child(even) {
-    background: #242e39;
-}
-
-tbody tr:hover {
-    background: #202a33;
+.show {
+    pointer-events: auto;
+    display: flex;
 }

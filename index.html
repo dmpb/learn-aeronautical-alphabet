@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javier Vargas | Aprende el Alfabeto aeronaútico</title>
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/mobile.css">
+    <link rel="stylesheet" href="assets/css/desktop.css" media="(min-width: 1080px)">
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
     <script src="https://kit.fontawesome.com/bcc14d4623.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,14 +21,19 @@
             <h1>¡Aprende el alfabeto aeronaútico!</h1>
             <p class="paragraph__nav">Juega con nosotros y aprende el significado de cada uno de las letras.</p>
             <br>
-            <button class="button button__nav">
+            <a href="pages/about.html" class="button button__nav">
                 Conoce más sobre nosotros
-            </button>
+            </a>
         </section>
         <img class="img__nav" src="assets/img/img-questions.svg" alt="Foto referencial">
     </section>
     <main class="container">
-        <p class="content__help"><span class="span__help">¿Necesitas ayuda?</span> Mira el alfabeto aeronaútico <a href="">aquí</a></p>
+        <p class="content__help"><span class="span__help">¿Necesitas ayuda?</span> Mira el alfabeto aeronaútico <button class="button__span" id="button__alphabet">aquí</button></p>
+        <section id="container__tables" class="container__tables">
+            <button class="button__circle" id="exitAlphabet"><i class="fas fa-times"></i></button>
+            <section id="content__tables" class="content__tables">
+            </section>
+        </section>
         <div class="container__content">
             <span id="hour">1:00</span>
             <p class="paragraph" id="paragraph">Recuerda que si está mal escrito, contará como respuesta errónea.</p>
@@ -43,22 +49,24 @@
                         <span id="answer__correct" class="answer__correct">2</span>
                     </section>
                     <section class="content__answer">
-                        <i class="error fas fa-times"></i>
+                        <i class="errorIcon fas fa-times"></i>
                         <span id="answer__wrong" class="answer__wrong">4</span>
                     </section>
                 </section>
-                <table id="table" class="table">
-                    <thead>
-                        <tr>
-                            <td>Correcto</td>
-                            <td>Ingresado</td>
-                        </tr>
-                    </thead>
-                    <tbody id="listWrong">
-                    </tbody>
-                </table>
                 <section class="section__button">
-                    <button class="resetGame" id="resetGame"><i class="fas fa-redo-alt"></i></button>
+                    <button class="button__circle" id="resetGame"><i class="fas fa-redo-alt"></i></button>
+                </section>
+                <section class="table__answer">
+                    <table id="table" class="table">
+                        <thead>
+                            <tr>
+                                <td>Correcto</td>
+                                <td>Ingresado</td>
+                            </tr>
+                        </thead>
+                        <tbody id="listWrong">
+                        </tbody>
+                    </table>
                 </section>
             </div>
         </div>

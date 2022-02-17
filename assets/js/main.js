@@ -21,6 +21,7 @@ let answerCorrect = 0,
     arrayCorrect = [],
     validateTime = '';
 
+
 // Capturamos el evento cada que se envía una palabra en el input, para que valide si la respuesta es correcta y pase a la siguiente letra.
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -146,3 +147,49 @@ const hideElement = (element) => {
 const showElement = (element) => {
     element.style.display = 'block';
 }
+
+document.getElementById('button__alphabet').addEventListener('click', () => {
+    const tables = document.getElementsByClassName('table__alphabet');
+    document.getElementById('container__tables').classList.add('show');
+    if (tables.length == 2) {
+        return;
+    }
+    createTables();
+    for (let i = 0; i < alphabet.length; i++) {
+        let tr = createTr(alphabet[i], alphabetAeronatic[i]);
+        (i >= alphabet.length / 2) ? tables[1].appendChild(tr): tables[0].appendChild(tr);
+        console.log(alphabetAeronatic[i]);
+    }
+});
+
+function createTr(nodeText__one, nodeText__two) {
+    let tr = document.createElement('tr');
+    let th = document.createElement('th');
+    let td = document.createElement('td');
+
+    th.classList.add('th');
+    td.classList.add('td');
+
+    th.innerHTML = nodeText__one;
+    td.innerHTML = nodeText__two;
+
+    tr.appendChild(th);
+    tr.appendChild(td);
+    return tr;
+}
+
+function createTables() {
+    let content__tables = document.getElementById('content__tables');
+    let table__one = document.createElement('table');
+    let table__two = document.createElement('table');
+
+    table__one.classList.add('table', 'table__alphabet');
+    table__two.classList.add('table', 'table__alphabet');
+
+    content__tables.appendChild(table__one);
+    content__tables.appendChild(table__two);
+}
+
+document.getElementById('exitAlphabet').addEventListener('click', () => {
+    document.getElementById('container__tables').classList.remove('show');
+});
