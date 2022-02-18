@@ -112,7 +112,6 @@ html {
     background-color: var(--color-main);
     margin-right: 1rem;
     outline: none;
-    /* border-left: solid 3px var(--color-background); */
     box-shadow: 0px 4px 20px rgba(32, 32, 32, 0.15);
     cursor: text;
     color: var(--color-background);
@@ -240,4 +239,10 @@ td {
 .show {
     pointer-events: auto;
     display: flex;
+}
+
+@media (max-width: 331px) {
+    .input {
+        width: 58.5%;
+    }
 }
