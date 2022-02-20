@@ -20,6 +20,8 @@ html {
 body {
     display: grid;
     grid-template-columns: 40rem auto;
+    height: 100vh;
+    width: 100%;
 }
 
 
@@ -75,11 +77,12 @@ body {
 
 .content__help,
 .footer {
-    display: block;
-    position: absolute;
+    display: inline;
+    position: relative;
     bottom: 0;
     font-weight: 300;
     font-size: 1.5rem;
+    z-index: 20;
 }
 
 .content__help {
@@ -102,10 +105,11 @@ body {
 
 .container {
     background: var(--color-button-text);
-    height: 100vh;
     display: flex;
+    flex-direction: column;
+    height: 100vh;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .container__content {
@@ -214,7 +218,7 @@ body {
     flex-direction: column;
     align-items: flex-end;
     background-color: var(--color-button-text);
-    top: 20rem;
+    top: 20%;
     display: none;
     z-index: 10;
     width: 35rem;
