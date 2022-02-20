@@ -18,6 +18,11 @@ html {
     background: var(--color-background);
 }
 
+.content__bar {
+    height: 1rem;
+    background-color: var(--color-secondary);
+}
+
 .nav {
     font-size: 1.5rem;
     color: var(--color-headline);
@@ -54,7 +59,7 @@ html {
     font-weight: bold;
     border: none;
     border-radius: .4rem;
-    padding: 1.5rem 1.9rem;
+    padding: 1.05rem 1.4rem;
     cursor: pointer;
     box-shadow: 0px 4px 20px rgba(32, 32, 32, 0.05);
 }
