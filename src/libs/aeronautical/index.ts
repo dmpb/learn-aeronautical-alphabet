@@ -1,29 +1,5 @@
-interface Config {
-  time?: number;
-  finished: (result: any) => void;
-}
-
-interface DeliberyAlphabet {
-  symbol: string;
-}
-
-class AeronauticAlphabet {
-  symbol: string;
-  value: string;
-  guess: string;
-
-  /**
-   * Creates an instance of AeronauticAlphabet.
-   * @param {string} symbol
-   * @param {string} value
-   * @param {string} guess
-   */
-  constructor(symbol: string, value: string, guess: string) {
-    this.symbol = symbol;
-    this.value = value;
-    this.guess = "";
-  }
-}
+import { Configuration, DeliberyAlphabet } from "./lib/Interfaces";
+import AeronauticAlphabet from "./lib/AeronauticAlphabet";
 
 class Aeronautical {
   private alphabets: Array<AeronauticAlphabet>;
@@ -37,7 +13,7 @@ class Aeronautical {
   /**
    * Creates an instance of Aeronautical.
    */
-  constructor(config: Config) {
+  constructor(config: Configuration) {
     this.time = config.time ? config.time : 60000;
     this.finished = config.finished;
     this.timeCounter = 0;
