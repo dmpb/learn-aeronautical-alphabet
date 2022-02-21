@@ -11,7 +11,7 @@ class Aeronautical {
   private timeCounter: number;
   private timer: any;
   private step: number;
-  private finished: (result: any) => void;
+  private finished: (result: ResultAlphabet) => void;
   private ended: boolean;
 
   /**

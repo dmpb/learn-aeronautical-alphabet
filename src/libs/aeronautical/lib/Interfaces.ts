@@ -1,6 +1,6 @@
 export interface Configuration {
   time?: number;
-  finished: (result: any) => void;
+  finished: (result: ResultAlphabet) => void;
 }
 
 export interface DeliberyAlphabet {
