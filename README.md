@@ -50,7 +50,7 @@ play.addEventListener("click", () => {
 `play` retorna un objeto con la primera letra del alfabeto.
 ```javascript
 {
-	symbol: "a"
+  symbol: "a"
 }
 ```
 
