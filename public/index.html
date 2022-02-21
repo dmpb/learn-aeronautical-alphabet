@@ -9,12 +9,25 @@
 </head>
 
 <body>
-  <h1>Hi, I'm Daniel Ponce</h1>
+  <h1>Hi, I'm Learn Aeronautical Alphabet</h1>
   <button id="play">Play</button>
   <hr>
   <div>
-    <input type="text" id="input">
-    <button id="next">Next</button>
+    <p id="letter"></p>
+    <input type="text" id="input" disabled>
+    <button id="next" disabled>Next</button>
+    <div id="result" style="display: none;">
+      <table>
+        <tr>
+          <th>Success</th>
+          <th>Error</th>
+        </tr>
+        <tr>
+          <td id="success"></td>
+          <td id="error"></td>
+        </tr>
+      </table>
+    </div>
   </div>
 </body>
 
