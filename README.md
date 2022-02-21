@@ -37,7 +37,7 @@ const aeronautical = new Aeronoutical({
 });
 ```
 ### `play`
----
+
 El método `play` inicia el juego si aun no se inicia o reinicia el juego si el juego ya habia iniciado. 
 
 ```javascript
@@ -55,7 +55,7 @@ play.addEventListener("click", () => {
 ```
 
 ### `next`
----
+
 El método `next` pasa el siguiente letra del alfabeto. 
 ```javascript
 // Evento para pasar al siguiente letra
