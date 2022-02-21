@@ -6,3 +6,8 @@ export interface Configuration {
 export interface DeliberyAlphabet {
   symbol: string;
 }
+
+export interface ResultAlphabet {
+  success: number;
+  error: number;
+}

@@ -1,4 +1,8 @@
-import { Configuration, DeliberyAlphabet } from "./lib/Interfaces";
+import {
+  Configuration,
+  DeliberyAlphabet,
+  ResultAlphabet,
+} from "./lib/Interfaces";
 import AeronauticAlphabet from "./lib/AeronauticAlphabet";
 
 class Aeronautical {
@@ -44,12 +48,16 @@ class Aeronautical {
    * @private
    */
   private stop() {
+    // Parar el intervalo
     clearInterval(this.timer);
+    // Obtener el resultado de la validación
     const result = this.validate();
+    // Resetear todos los valores
     this.ended = true;
     this.timeCounter = 0;
     this.alphabets = this.listAlphabet();
     this.step = 0;
+    // Accionar el callback de finalización
     this.finished(result);
   }
   /**
@@ -96,8 +104,32 @@ class Aeronautical {
       symbol: symbol,
     };
   }
+  /**
+   * Validar la lista de aeronautic
+   *
+   * @private
+   * @return {*}  {ResultAlphabet}
+   */
+  private validate(): ResultAlphabet {
+    let success = 0;
+    let error = 0;
 
-  private validate() {}
+    this.alphabets.map((alphabet) => {
+      const value = alphabet.value;
+      const guess = alphabet.guess;
+
+      if (value === guess) {
+        success += 1;
+      } else {
+        error += 1;
+      }
+    });
+
+    return {
+      success,
+      error,
+    };
+  }
 
   /**
    * Retornar lista de alfabetos admitidos

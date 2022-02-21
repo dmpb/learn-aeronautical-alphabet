@@ -9,6 +9,7 @@ const aeronautical = new Aeronoutical({
   time: 60000,
   finished: (result) => {
     console.log("finished");
+    console.log(result);
   },
 });
 
