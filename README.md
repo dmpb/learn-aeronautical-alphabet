@@ -18,7 +18,7 @@ $ npm run build
 ## 👨🏻‍💻 Cómo funciona
 
 ### `Class Aeronautical`
----
+
 
 Instanciar la clase `Aeronautical`. Esta clase recibe dos propiedades: `time` y `finished` callback.
 - El `time` establece el intervalo de tiempo que durará el juego.
@@ -69,6 +69,6 @@ next.addEventListener("click", () => {
 
 ```javascript
 {
-    symbol: "b"
+  symbol: "b"
 }
 ```
